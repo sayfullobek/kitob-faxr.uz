@@ -10,14 +10,14 @@ const options = {
 		},
 		servers: [
 			{
-				url: 'http://localhost:3000/api',
+				url: 'https://api.kitob-faxr.uz/api',
 				description: 'Local server',
 			},
 		],
 		components: {
 			securitySchemes: {
 				bearerAuth: {
-					type: 'http',
+					type: 'https',
 					scheme: 'bearer',
 					bearerFormat: 'JWT',
 				},

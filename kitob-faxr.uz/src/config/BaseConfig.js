@@ -1,7 +1,9 @@
 import axios from 'axios'
 
-export const BASE_URL = 'http://localhost:3000/api/v1'
-export const BASE_URL_PH = 'http://localhost:3000'
+// export const BASE_URL = 'http://localhost:3000/api/v1'
+export const BASE_URL = 'http://api.kitob-faxr.uz/api/v1'
+export const BASE_URL_PH = 'http://api.kitob-faxr.uz'
+// export const BASE_URL_PH = 'http://localhost:3000'
 // export const BASE_URL = "http://159.203.142.41:3000/api/v1"
 // export const BASE_URL = "https://api.drkodirov.uz/api/v1"
 
