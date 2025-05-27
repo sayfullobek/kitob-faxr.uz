@@ -12,7 +12,7 @@ const dotenv = require('dotenv')
 const dataLoader = require('../src/component/dataLoader')
 dotenv.config()
 
-const port = normalizePort(process.env.PORT || '3000')
+const port = normalizePort(process.env.PORT || '4000')
 app.set('port', port)
 
 mongoose
