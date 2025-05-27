@@ -8,7 +8,7 @@ const dotenv = require('dotenv')
 const dataLoader = require('../src/component/dataLoader')
 dotenv.config()
 
-const port = normalizePort(process.env.PORT || '443')
+const port = normalizePort(process.env.PORT || '4000') // 443 emas!
 app.set('port', port)
 
 // Sertifikatlar yo'li
