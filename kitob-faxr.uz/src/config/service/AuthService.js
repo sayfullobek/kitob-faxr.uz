@@ -13,8 +13,9 @@ export const LoginHandler = async (data, navigate) => {
 			text: res.data.message,
 			icon: 'success',
 		})
-
-		navigate(`/${DASHBOARD_URL.dashboard}`)
+		setTimeout(() => {
+			window.location.reload()
+		}, 2000)
 	} catch (err) {
 		console.log(err)
 		Swal.fire({

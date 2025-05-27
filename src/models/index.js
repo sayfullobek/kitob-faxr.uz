@@ -5,4 +5,5 @@ module.exports = {
 	Projects: require('./projects'),
 	Archetecturas: require('./archetecturas'),
 	Admins: require('./admins'),
+	Order: require('./orderArchetectura'),
 }

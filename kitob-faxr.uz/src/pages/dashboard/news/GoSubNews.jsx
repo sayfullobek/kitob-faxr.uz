@@ -24,7 +24,7 @@ import { DASHBOARD_URL } from '../../../utils/Utils'
 export const GoSubNews = () => {
 	const id = useParams().id
 	const [search, setSearch] = useState('')
-	const [searchField, setSearchField] = useState('name') // default: name
+	const [searchField, setSearchField] = useState('description') // default: name
 	const [data, setData] = useState([])
 	const [totalItems, setTotalItems] = useState(0)
 	const [forSearch, setForSearch] = useState([])
@@ -96,9 +96,10 @@ export const GoSubNews = () => {
 	return loading ? (
 		<Box sx={{ padding: '3rem' }}>
 			<Breadcrump
-				status={'add'}
+				status={'addAndBack'}
 				url={`/${DASHBOARD_URL.subNewsAdd}/${id}`}
 				arr={SUB_NEWS_BREADCRUMP_ADD(id)}
+				backUrl={`/${DASHBOARD_URL.news}`}
 			/>
 			<Box
 				sx={{
@@ -150,7 +151,7 @@ export const GoSubNews = () => {
 							: []
 				}
 				fields={SUB_NEWS_HEAD}
-				url={DASHBOARD_URL.subNewsAdd}
+				url={`${DASHBOARD_URL.subNewsUpdate}/${id}`}
 				deleteUrl={APP_API.subNews}
 				getAll={getAll}
 				pathName={pathName}

@@ -130,6 +130,11 @@ export const DashboardLayouts = props => {
 						title: "Sotuv bo'limlari",
 						icon: <SourceIcon htmlColor='green' />,
 					},
+					{
+						segment: DASHBOARD_URL.archetecturasOrder,
+						title: 'Buyurtmalar',
+						icon: <SourceIcon htmlColor='green' />,
+					},
 				]
 			: []
 	const router = React.useMemo(() => {

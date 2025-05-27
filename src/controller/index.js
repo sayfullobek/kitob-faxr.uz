@@ -5,4 +5,6 @@ module.exports = {
 	projectController: require('./projectController'),
 	archetecturasController: require('./archetecturasController'),
 	adminController: require('./adminController'),
+	orderArchetecturaController: require('./orderArchetecturaController'),
+	allData: require('./AllData'),
 }

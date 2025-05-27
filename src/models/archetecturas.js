@@ -3,6 +3,10 @@ const { schemaOptions } = require('./modelOptions')
 
 const archetecturasSchema = new Schema(
 	{
+		photo: {
+			type: String,
+			required: [true, "Kvartira rasmi bo'lishi shart!"],
+		},
 		kvartiraNumber: {
 			type: Number,
 			required: [true, "Kvartiraning raqami bo'lishi majburiy"],
@@ -55,7 +59,7 @@ const archetecturasSchema = new Schema(
 		},
 		projects: {
 			type: Schema.Types.ObjectId,
-			ref: 'projects',
+			ref: 'Projects',
 			required: [
 				true,
 				"Ushbu kvartira qaysi loyihaga tegishli ekanligi bo'lishi shart!",

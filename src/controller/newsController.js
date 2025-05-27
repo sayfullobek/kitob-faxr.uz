@@ -21,6 +21,16 @@ exports.getAll = async (req, res) => {
 	}
 }
 
+exports.getAllAndSub = async (req, res) => {
+	try {
+		const { page, limit } = req.query
+		const result = await newsService.getNewsAndSub({ page, limit })
+		res.json(result)
+	} catch (error) {
+		res.status(500).json({ message: error.message })
+	}
+}
+
 exports.getOne = async (req, res) => {
 	try {
 		const news = await newsService.getNewsById(req.params.id)

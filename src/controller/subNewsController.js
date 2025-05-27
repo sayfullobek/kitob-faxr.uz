@@ -10,13 +10,42 @@ exports.create = async (req, res) => {
 	}
 }
 
+exports.getAllByNewsId = async (req, res) => {
+	const newsId = req.params.id
+	if (!newsId) {
+		return res.status(400).json({ message: 'newsId so‘rovi kerak' })
+	}
+	try {
+		const result = await subNewsService.getSubNewsByNewsId(newsId)
+		res.json(result)
+	} catch (err) {
+		console.log(err)
+		res.status(500).json({ message: err.message })
+	}
+}
+
 exports.getAll = async (req, res) => {
 	try {
 		const { page, limit, newsId } = req.query
 		const result = await subNewsService.getSubNews({ page, limit, newsId })
 		res.json(result)
 	} catch (err) {
+		console.log(err)
 		res.status(500).json({ message: err.message })
+	}
+}
+
+exports.getAllUser = async (req, res) => {
+	try {
+		const result = await subNewsService.getSubNewsUsers()
+
+		res.json(result)
+	} catch (err) {
+		console.log(err)
+		res.status(500).json({
+			message: err.mesage,
+			success: false,
+		})
 	}
 }
 

@@ -7,9 +7,10 @@ import {
 	TextField,
 	Typography,
 } from '@mui/material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LoginHandler } from '../../config/service/AuthService'
+import { DASHBOARD_URL } from '../../utils/Utils'
 
 export const Login = () => {
 	const navigate = useNavigate()
@@ -17,6 +18,15 @@ export const Login = () => {
 		phoneNumber: '',
 		password: '',
 	})
+
+	const validation = async () => {
+		if (localStorage.getItem('token')) {
+			navigate(`/${DASHBOARD_URL.dashboard}`)
+		}
+	}
+	useEffect(() => {
+		validation()
+	}, [])
 
 	const [errors, setErrors] = useState({})
 

@@ -23,6 +23,22 @@ const getSubNews = async ({ page = 1, limit = 10, newsId }) => {
 	}
 }
 
+const getSubNewsByNewsId = async newsId => {
+	return await SubNews.find({ news: newsId }).populate('news')
+}
+
+const getSubNewsUsers = async () => {
+	const [total, data] = await Promise.all([
+		SubNews.countDocuments(),
+		SubNews.find().populate('news'),
+	])
+
+	return {
+		total,
+		data,
+	}
+}
+
 const getSubNewsById = async id => {
 	return await SubNews.findById(id).populate('news', 'name')
 }
@@ -41,7 +57,9 @@ const deleteSubNews = async id => {
 module.exports = {
 	createSubNews,
 	getSubNews,
+	getSubNewsUsers,
 	getSubNewsById,
 	updateSubNews,
 	deleteSubNews,
+	getSubNewsByNewsId,
 }

@@ -151,7 +151,9 @@ const { verifyUsersToken } = require('../config')
  */
 
 router.get('/', archetecturasController.getAll)
+router.get('/all', archetecturasController.getAllArchetectura)
 router.get('/:id', archetecturasController.getOne)
+router.get('/project/:id', archetecturasController.getProjects)
 router.post(
 	'/',
 	verifyUsersToken,
@@ -163,6 +165,12 @@ router.put(
 	verifyUsersToken,
 	upload.single('photo'),
 	archetecturasController.update
+)
+router.put(
+	'/soldOut/:id',
+	verifyUsersToken,
+	upload.none(''),
+	archetecturasController.updateSoldOut
 )
 router.delete('/:id', verifyUsersToken, archetecturasController.remove)
 

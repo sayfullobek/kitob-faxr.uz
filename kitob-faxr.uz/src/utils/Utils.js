@@ -22,5 +22,8 @@ export const DASHBOARD_URL = {
 	archetecturasAdd: `${KITOB_FAXR}/archetecturas/add`,
 	archetecturasUpdate: `${KITOB_FAXR}/archetecturas/update`,
 
+	archetecturasOrder: `${KITOB_FAXR}/archetecturas-order`,
+	archetecturasOrderAdd: `${KITOB_FAXR}/archetecturas-order/add`,
+
 	login: 'auth/login',
 }

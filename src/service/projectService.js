@@ -1,7 +1,15 @@
 const { Projects } = require('../models')
 
-const createProject = async data => {
-	return await Projects.create(data)
+const createProject = async (data, photo) => {
+	const dat = {
+		name: data.name,
+		photo,
+		description: data.description,
+		address: data.address,
+		endDate: data.endDate,
+		status: data.status,
+	}
+	return await Projects.create(dat)
 }
 
 const getProjects = async ({ page = 1, limit = 10 }) => {

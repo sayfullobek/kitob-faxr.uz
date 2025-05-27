@@ -2,8 +2,9 @@ const { projectService } = require('../service')
 
 exports.create = async (req, res) => {
 	try {
-		const created = await projectService.createProject(req.body)
-		res.status(201).json(created)
+		const photo = req.file?.filename
+		const created = await projectService.createProject(req.body, photo)
+		res.status(201).json({ created, success: true })
 	} catch (err) {
 		res.status(400).json({ message: err.message })
 	}

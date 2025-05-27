@@ -100,3 +100,72 @@ export const SUB_NEWS_BREADCRUMP_ADD = id => {
 		},
 	]
 }
+export const PROJECTS_BREADCRUMP = [
+	{
+		name: 'Asosiy sahifa',
+		url: `/${DASHBOARD_URL.dashboard}`,
+		primary: false,
+	},
+	{
+		name: 'Loyihalar',
+		primary: true,
+	},
+]
+
+export const PROJECTS_BREADCRUMP_ADD = [
+	{
+		name: 'Asosiy sahifa',
+		url: `/${DASHBOARD_URL.dashboard}`,
+		primary: false,
+	},
+	{
+		name: 'Loyihalar',
+		url: `/${DASHBOARD_URL.projects}`,
+		primary: false,
+	},
+	{
+		name: 'Saqlash',
+		primary: true,
+	},
+]
+
+export const ARCHETECTURAS_BREADCRUMP = [
+	{
+		name: 'Asosiy sahifa',
+		url: `/${DASHBOARD_URL.dashboard}`,
+		primary: false,
+	},
+	{
+		name: 'Kvartiralar',
+		primary: true,
+	},
+]
+
+export const ARCHETECTURAS_BREADCRUMP_ADD = [
+	{
+		name: 'Asosiy sahifa',
+		url: `/${DASHBOARD_URL.dashboard}`,
+		primary: false,
+	},
+	{
+		name: 'Kvartiralar',
+		url: `/${DASHBOARD_URL.archetecturas}`,
+		primary: false,
+	},
+	{
+		name: 'Saqlash',
+		primary: true,
+	},
+]
+
+export const ARCHETECTURAS_ORDER_BREADCRUMP = [
+	{
+		name: 'Asosiy sahifa',
+		url: `/${DASHBOARD_URL.dashboard}`,
+		primary: false,
+	},
+	{
+		name: 'Buyurtmalar',
+		primary: true,
+	},
+]

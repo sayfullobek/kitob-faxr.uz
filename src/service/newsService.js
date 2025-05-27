@@ -1,4 +1,4 @@
-const { News } = require('../models')
+const { News, SubNews } = require('../models')
 
 const createNews = async data => {
 	return await News.create(data)
@@ -15,6 +15,31 @@ const getNews = async ({ page = 1, limit = 10 }) => {
 		page: Number(page),
 		limit: Number(limit),
 		data,
+	}
+}
+
+const getNewsAndSub = async ({ page = 1, limit = 10 }) => {
+	const skip = (page - 1) * limit
+	const [total, data] = await Promise.all([
+		News.countDocuments(),
+		News.find().skip(skip).limit(limit),
+	])
+
+	const dataWithSubs = await Promise.all(
+		data.map(async news => {
+			const subNews = await SubNews.find({ news: news._id })
+			return {
+				...news.toObject(), // agar Mongoose Document bo‘lsa
+				subNews: subNews[0] || null,
+			}
+		})
+	)
+
+	return {
+		total,
+		page: Number(page),
+		limit: Number(limit),
+		data: dataWithSubs,
 	}
 }
 
@@ -39,4 +64,5 @@ module.exports = {
 	getNewsById,
 	updateNews,
 	deleteNews,
+	getNewsAndSub,
 }

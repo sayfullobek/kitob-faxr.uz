@@ -112,6 +112,7 @@ const { verifyUsersToken } = require('../config')
  */
 
 router.get('/', newsController.getAll)
+router.get('/all', newsController.getAllAndSub)
 router.get('/:id', newsController.getOne)
 router.post('/', verifyUsersToken, upload.none(), newsController.create)
 router.put('/:id', verifyUsersToken, upload.none(), newsController.update)

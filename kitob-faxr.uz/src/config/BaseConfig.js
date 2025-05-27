@@ -23,6 +23,8 @@ export const APP_API = {
 	subNews: `${BASE_URL}/subNews`,
 	projects: `${BASE_URL}/projects`,
 	archetecturas: `${BASE_URL}/archetecturas`,
+	allData: `${BASE_URL}/all-data`,
+	orderArchetectura: `${BASE_URL}/order`,
 }
 
 export const BASE_CONFIG = {

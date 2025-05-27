@@ -15,7 +15,7 @@ const subNewsSchema = new Schema(
 		},
 		news: {
 			type: Schema.Types.ObjectId,
-			ref: 'news',
+			ref: 'News',
 			required: [true, "Yangilikning ma'lumotlari bo'lishi shart!"],
 		},
 	},

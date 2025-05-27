@@ -16,18 +16,19 @@ export const SubNewsAddAndUpdate = () => {
 	const navigate = useNavigate()
 
 	const [loading, setLoading] = useState(false)
-	const [photo, setPhoto] = useState()
+	const [photo, setPhoto] = useState(null)
 
 	const getAll = async () => {
 		try {
 			if (id) {
-				const res = await AutoGet(`${APP_API.news}/${id}`)
+				const res = await AutoGet(`${APP_API.subNews}/${id}`)
+				console.log(res)
 				setFormData({
-					description: res.subNews.description,
+					description: res.description,
 					imageUrl:
-						res.imageUrl instanceof Blob
-							? URL.createObjectURL(res.imageUrl)
-							: res.imageUrl,
+						res.photo instanceof Blob
+							? URL.createObjectURL(`${APP_API.upload}/${res.photo}`)
+							: `${APP_API.upload}/${res.photo}`,
 				})
 				setPhoto(res.photo)
 			}
@@ -50,8 +51,12 @@ export const SubNewsAddAndUpdate = () => {
 	]
 
 	const handleSubmit = async formData => {
+		if (id) {
+			formData.photo = photo
+		}
+		console.log(formData.photo)
 		// Agar eski rasm string bo‘lsa, reject qilamiz
-		if (!formData.photo || typeof formData.photo === 'string') {
+		if (!formData.photo) {
 			return Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
